@@ -18,10 +18,6 @@ def BSput(K,r,T,S0,sigma):
     d2 = d1 - sigma*np.sqrt(T)
     return - S0*scipy.stats.norm.cdf(-d1) + K*np.exp(-r*T)*scipy.stats.norm.cdf(-d2)
 
-def BS_kernel(x,r,m,T,S0,sigma):
-    a = np.exp((-T*2*r*sigma**2-T*(r-sigma**2/2)**2+T*(m-sigma**2/2)**2)/(2*sigma**2))
-    return a*(x/S0)**(-(m-r)/sigma**2)
-
 def static_replication_nth_moment(n,K_array,calls_array,puts_array,Rf,S0):
     
     dK_array = np.diff(K_array)

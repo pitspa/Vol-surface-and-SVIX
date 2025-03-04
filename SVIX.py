@@ -8,14 +8,6 @@ pandas.options.mode.chained_assignment = None  # default='warn'
 
 #%%
 
-def lognorm_leq(x,m,T,S0,sigma):
-    return scipy.stats.lognorm.cdf(x,s=sigma*np.sqrt(T),
-                                     scale=np.exp(np.log(S0)+(m-sigma**2/2)*(T)))
-
-def lognorm_geq(x,m,T,S0,sigma):
-    return 1-scipy.stats.lognorm.cdf(x,s=sigma*np.sqrt(T),
-                                     scale=np.exp(np.log(S0)+(m-sigma**2/2)*(T)))
-
 def BScall(K,r,T,S0,sigma):
     d1 = (np.log(S0/K)+(r+sigma**2/2)*T)/(sigma*np.sqrt(T))
     d2 = d1 - sigma*np.sqrt(T)
